@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grow - Smart Baby Diary. Record your baby's precious moments with text, audio, photos, and videos. AI automatically generates beautiful feeds that cherish these memories.">
+    <meta name="keywords" content="baby diary, baby memories, smart diary, AI baby journal, baby moments, family memories">
+    <meta name="author" content="Memory Lab AI">
+    <title>Grow - Smart Baby Diary | Cherish Every Moment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grow-primary: #4caf50;
+            --grow-secondary: #66bb6a;
+            --grow-accent: #81c784;
+            --grow-soft: #e8f5e9;
+            --grow-gradient: linear-gradient(135deg, #8de999 0%, #58ef8a 50%, #4caf50 100%);
+            --grow-gradient-soft: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .grow-hero {
+            background: var(--grow-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .grow-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=1920&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .grow-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .grow-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grow-hero-logo {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 2rem;
+            display: block;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grow-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .grow-hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 3rem auto;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            object-fit: cover;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        }
+
+        .grow-features {
+            padding: 100px 0;
+            background: var(--grow-gradient-soft);
+        }
+
+        .grow-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .grow-feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grow-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--grow-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .grow-feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255,107,157,0.2);
+        }
+
+        .grow-feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .grow-feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--grow-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(255,107,157,0.3);
+        }
+
+        .grow-feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .grow-feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .grow-ai-section {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+        }
+
+        .grow-ai-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .grow-ai-text h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--grow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .grow-ai-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .grow-ai-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            background: var(--grow-gradient-soft);
+        }
+
+        .grow-cta {
+            padding: 100px 0;
+            background: var(--grow-gradient);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grow-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .grow-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .grow-cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .grow-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .grow-btn {
+            padding: 18px 48px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--grow-primary);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .grow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .grow-gallery {
+            padding: 100px 0;
+            background: var(--background-alt);
+        }
+
+        .grow-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .grow-gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            aspect-ratio: 4/3;
+            background: var(--grow-gradient-soft);
+        }
+
+        .grow-gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grow-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grow-security {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .grow-security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .grow-security-card {
+            background: var(--grow-gradient-soft);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .grow-security-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--grow-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .grow-security-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
+            border-color: var(--grow-primary);
+        }
+
+        .grow-security-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .grow-security-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--grow-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .grow-security-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .grow-security-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .grow-ai-content {
+                grid-template-columns: 1fr;
+            }
+
+            .grow-ai-image {
+                order: -1;
+            }
+
+            .grow-hero-logo {
+                max-width: 250px;
+            }
+
+            .grow-ai-text h2,
+            .grow-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grow-hero {
+                min-height: 80vh;
+            }
+
+            .grow-hero-logo {
+                max-width: 200px;
+            }
+
+            .grow-tagline {
+                font-size: 1.2rem;
+            }
+
+            .grow-features-grid,
+            .grow-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="nav-brand-link">
+                    <img src="assets/logo.png" alt="Memory Lab AI" class="nav-logo">
+                    <img src="assets/grow.png" alt="Grow" class="nav-logo nav-logo-grow">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="grow-hero">
+        <div class="container">
+            <div class="grow-hero-content">
+                <img src="assets/grow.png" alt="Grow - Smart Baby Diary" class="grow-hero-logo">
+                <p class="grow-tagline">Your Smart Baby Diary - Cherish Every Precious Moment</p>
+                <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=1200&q=80" alt="Beautiful baby moment" class="grow-hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="grow-features">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--text-dark);">Capture Life's Beautiful Moments</h2>
+            <div class="grow-features-grid">
+                <div class="grow-feature-card">
+                    <div class="grow-feature-icon">📝</div>
+                    <h3>Text Memories</h3>
+                    <p>Write down your thoughts, milestones, and special moments. Document your baby's first words, first steps, and all the little things that matter.</p>
+                </div>
+                <div class="grow-feature-card">
+                    <div class="grow-feature-icon">🎤</div>
+                    <h3>Audio Recordings</h3>
+                    <p>Special moments are hard to catch. Recreate those adorable giggling scenes and funny stories with your voice. Audio memories bring back the sound of those precious moments.</p>
+                </div>
+                <div class="grow-feature-card">
+                    <div class="grow-feature-icon">📸</div>
+                    <h3>Photo/Video Moments</h3>
+                    <p>As always, bring all photos or videos in one beautiful place. Every smile, every milestone, every moment captured forever.</p>
+                </div>
+                <!-- <div class="grow-feature-card">
+                    <div class="grow-feature-icon">🎥</div>
+                    <h3></h3>
+                    <p>Record videos of your baby's growth journey. From first crawl to first birthday, preserve moving memories.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="grow-ai-section">
+        <div class="container">
+            <div class="grow-ai-content">
+                <div class="grow-ai-text">
+                    <h2>AI-Powered Memory Feeds</h2>
+                    <p>Our intelligent AI automatically organizes and generates beautiful memory feeds from all your recordings. No more sorting through thousands of photos and videos.</p>
+                    <p>Grow uses advanced AI to create meaningful collections, highlight milestones, and craft personalized stories that celebrate your baby's journey.</p>
+                    <p>Every moment is automatically tagged, organized, and presented in a way that makes reliving memories effortless and joyful.</p>
+                </div>
+                <div class="grow-ai-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="AI-powered baby diary interface" class="grow-ai-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="grow-gallery">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--text-dark);">Beautiful Memories, Beautifully Organized</h2>
+            <div class="grow-gallery-grid">
+                <div class="grow-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=80" alt="Baby moments">
+                </div>
+                <div class="grow-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80" alt="Family memories">
+                </div>
+                <div class="grow-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" alt="Precious moments">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="grow-cta">
+        <div class="container">
+            <div class="grow-cta-content">
+                <h2>Start Cherishing Every Moment</h2>
+                <p>Join thousands of families preserving their baby's precious memories with Grow. Download now and never lose a moment.</p>
+                <a href="#" class="grow-btn">Get Started Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Memory Lab AI. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="data-privacy.html">Data Privacy</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

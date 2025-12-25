@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how Grow by Memory Lab AI protects your family's memories with encryption, secure cloud storage, and privacy-first safeguards.">
+    <title>Data Privacy &amp; Security | Grow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grow-primary: #4caf50;
+            --grow-secondary: #66bb6a;
+            --grow-accent: #81c784;
+            --grow-soft: #e8f5e9;
+            --grow-gradient: linear-gradient(135deg, #8de999 0%, #58ef8a 50%, #4caf50 100%);
+            --grow-gradient-soft: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .page-hero {
+            background: var(--grow-gradient);
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .grow-security {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .grow-security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .grow-security-card {
+            background: var(--grow-gradient-soft);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .grow-security-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--grow-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .grow-security-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
+            border-color: var(--grow-primary);
+        }
+
+        .grow-security-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .grow-security-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--grow-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .grow-security-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .grow-security-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .grow-cta {
+            background: var(--grow-gradient);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grow-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .grow-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .grow-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .grow-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .grow-btn {
+            padding: 16px 42px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--grow-primary);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .grow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="nav-brand-link">
+                    <img src="assets/logo.png" alt="Memory Lab AI" class="nav-logo">
+                    <img src="assets/grow.png" alt="Grow" class="nav-logo nav-logo-grow">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="grow.html">Grow APP</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container page-hero-content">
+            <h1>Founded by Parents</h1>
+            <h1>We know the gravity of data privacy</h1>
+
+            <p>See how Grow keeps your family's memories private with state of the art tech, secure-by-design measures, and care.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="grow-security">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--text-dark);">How We Protect Your Memories</h2>
+                <div class="grow-security-grid">
+                    <div class="grow-security-card">
+                        <div class="grow-security-icon">🛡️</div>
+                        <h3>Security by Design</h3>
+                        <p>Your memories are stored on secure, encrypted servers with no third-party access. When you delete your copy locally, all media are simultaneously deleted from cloud and nowhere else to be found.</p>
+                    </div>
+                    <div class="grow-security-card">
+                        <div class="grow-security-icon">🔐</div>
+                        <h3>Only You Can See</h3>
+                        <p>We never share your data with third parties or tech service providers. Our team members also have no access to any uploaded media. Your baby's memories are yours alone.</p>
+                    </div>
+                    <div class="grow-security-card">
+                        <div class="grow-security-icon">✅</div>
+                        <h3>Legal Compliant</h3>
+                        <p>Fully compliant with international data protection regulations including GDPR and COPPA. You have full control over your data with easy export and deletion options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Memory Lab AI. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -59,6 +59,33 @@ body {
     background-clip: text;
 }
 
+.nav-brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-brand-link:hover {
+    opacity: 0.9;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.nav-logo-grow {
+    height: 35px;
+}
+
+.nav-brand-link:hover .nav-logo {
+    transform: scale(1.05);
+}
+
 .nav-menu {
     display: flex;
     list-style: none;

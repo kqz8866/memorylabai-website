@@ -65,22 +65,41 @@ window.addEventListener('scroll', updateActiveNav);
 // Reveal on Scroll Animation
 // ==========================================
 
-const revealElements = document.querySelectorAll('.reveal');
+function initRevealAnimations() {
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    // Fallback: if IntersectionObserver isn't supported, show all elements
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('visible'));
+        return;
+    }
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+    
+    // Initial check for elements already in viewport
+    revealElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            element.classList.add('visible');
         }
     });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
+}
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
+// Initialize immediately since script is at bottom of body
+initRevealAnimations();
 
 // ==========================================
 // Magnetic Button Effect (subtle)
@@ -235,15 +254,13 @@ class TextScramble {
     }
 }
 
-// Initialize page
+// Initialize page - run reveal animations again after DOM is fully ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Trigger initial reveal check
-    setTimeout(() => {
-        revealElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                element.classList.add('visible');
-            }
-        });
-    }, 100);
+    // Ensure reveal animations are initialized
+    initRevealAnimations();
+});
+
+// Also run on load event as a final fallback
+window.addEventListener('load', () => {
+    initRevealAnimations();
 });

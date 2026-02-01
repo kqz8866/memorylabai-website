@@ -5,193 +5,559 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn how Grow by Memory Lab AI protects your family's memories with encryption, secure cloud storage, and privacy-first safeguards.">
     <title>Data Privacy &amp; Security | Grow</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ==========================================
+           Light Theme Design System
+           ========================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --grow-primary: #4caf50;
-            --grow-secondary: #66bb6a;
-            --grow-accent: #81c784;
-            --grow-soft: #e8f5e9;
-            --grow-gradient: linear-gradient(135deg, #8de999 0%, #58ef8a 50%, #4caf50 100%);
-            --grow-gradient-soft: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            /* Light, airy color palette */
+            --bg-primary: #fafbfc;
+            --bg-secondary: #ffffff;
+            --bg-elevated: #f3f5f7;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            
+            /* Grow green accent */
+            --accent-primary: #22c55e;
+            --accent-secondary: #16a34a;
+            --accent-glow: rgba(34, 197, 94, 0.25);
+            --accent-subtle: rgba(34, 197, 94, 0.08);
+            
+            /* Text hierarchy */
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            
+            /* Gradients */
+            --gradient-accent: linear-gradient(135deg, #22c55e 0%, #10b981 50%, #059669 100%);
+            --gradient-card: linear-gradient(135deg, rgba(34, 197, 94, 0.06) 0%, rgba(16, 185, 129, 0.03) 100%);
+            --gradient-mesh: radial-gradient(ellipse at 20% 0%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                             radial-gradient(ellipse at 80% 100%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            
+            /* Borders */
+            --border-subtle: rgba(0, 0, 0, 0.06);
+            --border-accent: rgba(34, 197, 94, 0.3);
+            
+            /* Spacing */
+            --section-padding: clamp(80px, 12vw, 140px);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
             overflow-x: hidden;
         }
 
-        .page-hero {
-            background: var(--grow-gradient);
-            color: white;
-            text-align: center;
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
+        /* Background ambient effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-mesh);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .page-hero::after {
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 48px);
+        }
+
+        /* ==========================================
+           Typography
+           ========================================== */
+           
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           Navigation
+           ========================================== */
+           
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            background: rgba(250, 251, 252, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .navbar.scrolled {
+            padding: 0.875rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-brand-link:hover {
+            transform: translateX(4px);
+        }
+
+        .nav-logo {
+            height: 38px;
+            width: auto;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-logo-grow {
+            height: 32px;
+            opacity: 0.9;
+        }
+
+        .nav-brand h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.625rem 1.125rem;
+            border-radius: 8px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--accent-subtle);
+        }
+
+        /* ==========================================
+           Hero Section
+           ========================================== */
+           
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 0 var(--section-padding);
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        /* Animated gradient orbs */
+        .hero::before {
             content: '';
             position: absolute;
-            top: -40%;
+            top: -20%;
             right: -10%;
-            width: 520px;
-            height: 520px;
-            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
-            border-radius: 50%;
+            width: 60vw;
+            height: 60vw;
+            max-width: 700px;
+            max-height: 700px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        .page-hero-content {
-            position: relative;
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 50vw;
+            height: 50vw;
+            max-width: 500px;
+            max-height: 500px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .hero-content {
             max-width: 800px;
-            margin: 0 auto;
+            position: relative;
             z-index: 1;
+            text-align: center;
+            margin: 0 auto;
         }
 
-        .page-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-subtle);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .page-hero p {
-            font-size: 1.2rem;
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
             line-height: 1.8;
-            opacity: 0.95;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
-        .grow-security {
-            padding: 100px 0;
-            background: white;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .grow-security-grid {
+        /* ==========================================
+           Security Section
+           ========================================== */
+           
+        .security {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        .security-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
         }
 
-        .grow-security-card {
-            background: var(--grow-gradient-soft);
-            padding: 2.5rem;
+        .security-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 2.5rem;
             position: relative;
             overflow: hidden;
-            border: 2px solid transparent;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
         }
 
-        .grow-security-card::before {
+        .security-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--grow-gradient);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: var(--transition-smooth);
         }
 
-        .grow-security-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
-            border-color: var(--grow-primary);
+        .security-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-accent);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.12),
+                        0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
-        .grow-security-card:hover::before {
-            transform: scaleX(1);
+        .security-card:hover::before {
+            opacity: 1;
         }
 
-        .grow-security-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: var(--grow-gradient);
+        .card-icon {
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            transition: var(--transition-smooth);
         }
 
-        .grow-security-card h3 {
-            font-size: 1.5rem;
+        .security-card:hover .card-icon {
+            border-color: var(--border-accent);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        .security-card h3 {
+            font-size: 1.375rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
-            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Syne', sans-serif;
         }
 
-        .grow-security-card p {
-            color: var(--text-light);
+        .security-card p {
+            color: var(--text-secondary);
             line-height: 1.7;
             font-size: 1rem;
         }
 
-        .grow-cta {
-            background: var(--grow-gradient);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        /* ==========================================
+           Footer
+           ========================================== */
+           
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .grow-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        .grow-cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
+        .footer-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .grow-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
+        .footer-links {
+            display: flex;
+            gap: 2rem;
         }
 
-        .grow-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        .grow-btn {
-            padding: 16px 42px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 50px;
+        .footer-links a {
+            color: var(--text-secondary);
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            background: white;
-            color: var(--grow-primary);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
         }
 
-        .grow-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* ==========================================
+           Scroll Animations
+           ========================================== */
+           
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fallback-reveal 0.8s ease-out 1.5s forwards;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: none;
+        }
+
+        @keyframes fallback-reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                animation: none;
+                transition: none;
+            }
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ==========================================
+           Responsive Design
+           ========================================== */
+           
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 0.25rem;
+            }
+            
+            .nav-menu li a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 140px 0 80px;
+            }
+            
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .security-card {
+                padding: 2rem;
+            }
+        }
+
+        /* ==========================================
+           Custom Scrollbar
+           ========================================== */
+           
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-elevated);
+            border-radius: 5px;
+            border: 2px solid var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* ==========================================
+           Selection
+           ========================================== */
+           
+        ::selection {
+            background: var(--accent-primary);
+            color: white;
         }
     </style>
 </head>
@@ -211,39 +577,40 @@
         </div>
     </nav>
 
-    <header class="page-hero">
-        <div class="container page-hero-content">
-            <h1>Founded by Parents</h1>
-            <h1>We know the gravity of data privacy</h1>
-
-            <p>See how Grow keeps your family's memories private with state of the art tech, secure-by-design measures, and care.</p>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Founded by <span class="highlight">Parents</span></h1>
+                <h2 class="hero-title" style="font-size: clamp(1.5rem, 3vw, 2.5rem); margin-top: -0.5rem;">We know the gravity of data privacy</h2>
+                <p class="hero-subtitle">See how Grow keeps your family's memories private with state of the art tech, secure-by-design measures, and care.</p>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="grow-security">
+        <section class="security">
             <div class="container">
-                <h2 class="section-title" style="color: var(--text-dark);">How We Protect Your Memories</h2>
-                <div class="grow-security-grid">
-                    <div class="grow-security-card">
-                        <div class="grow-security-icon">🛡️</div>
+                <h2 class="section-title reveal">How We Protect Your Memories</h2>
+                <p class="section-subtitle reveal">Your family's data deserves the highest level of protection</p>
+                <div class="security-grid">
+                    <div class="security-card reveal reveal-delay-1">
+                        <div class="card-icon">🛡️</div>
                         <h3>Security by Design</h3>
-                        <p>Your memories are stored on secure, encrypted servers with no third-party access. When you delete your copy locally, all media are simultaneously deleted from cloud and nowhere else to be found.</p>
+                        <p>Your memories are stored on secure, encrypted servers with no third-party access. When you delete your copy locally, all media are simultaneously deleted from cloud.</p>
                     </div>
-                    <div class="grow-security-card">
-                        <div class="grow-security-icon">🔐</div>
+                    <div class="security-card reveal reveal-delay-2">
+                        <div class="card-icon">🔐</div>
                         <h3>Only You Can See</h3>
                         <p>We never share your data with third parties or tech service providers. Our team members also have no access to any uploaded media. Your baby's memories are yours alone.</p>
                     </div>
-                    <div class="grow-security-card">
-                        <div class="grow-security-icon">✅</div>
+                    <div class="security-card reveal reveal-delay-3">
+                        <div class="card-icon">✅</div>
                         <h3>Legal Compliant</h3>
                         <p>Fully compliant with international data protection regulations including GDPR and COPPA. You have full control over your data with easy export and deletion options.</p>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -261,4 +628,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

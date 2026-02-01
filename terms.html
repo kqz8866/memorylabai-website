@@ -4,68 +4,304 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Terms of Service for Memory Lab AI">
+    <meta name="theme-color" content="#ffffff">
     <title>Terms of Service - Memory Lab AI</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        .policy-content {
-            max-width: 900px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #fafafa;
+            --bg-accent: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #717171;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e5e5;
+            --border-dark: #d4d4d4;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            font-size: 18px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .navbar .container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .policy-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+        
+        .nav-brand a {
+            text-decoration: none;
         }
-        .policy-content .last-updated {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-        .policy-content h2 {
-            font-size: 1.75rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        .policy-content h3 {
-            font-size: 1.25rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-        }
-        .policy-content hr {
-            border: none;
-            border-top: 1px solid #e0e0e0;
-            margin: 2.5rem 0;
-        }
-        .policy-content strong {
+        
+        .nav-brand h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
             font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
-        .policy-content p, .policy-content ul {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
         }
-        .policy-content ul {
-            margin-left: 2rem;
-        }
-        .policy-content li {
-            margin-bottom: 0.5rem;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
+        
+        .nav-menu a {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
+        
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* Policy Header */
+        .policy-header {
+            padding: 140px 0 60px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .policy-header .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+        
         .back-link:hover {
-            color: var(--primary-dark);
+            color: var(--accent-hover);
+        }
+        
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .policy-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .last-updated {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Policy Content */
+        .policy-content {
+            padding: 4rem 0 6rem;
+        }
+        
+        .policy-content .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .policy-body h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .policy-body h2:first-child {
+            margin-top: 0;
+        }
+        
+        .policy-body h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .policy-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+        
+        .policy-body p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+        
+        .policy-body ul {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            margin-left: 1.25rem;
+            padding-left: 0;
+        }
+        
+        .policy-body li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+        
+        .policy-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .policy-body a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .policy-body a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-content p {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .navbar .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            
+            .policy-title {
+                font-size: 2.25rem;
+            }
+            
+            .policy-body h2 {
+                font-size: 1.5rem;
+            }
+            
+            .policy-body p,
+            .policy-body ul {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -74,333 +310,348 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>Memory Lab AI</h1>
+                <a href="index.html">
+                    <h1>Memory Lab</h1>
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#research">Research</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="policy-content">
-        <a href="index.html" class="back-link">← Back to Home</a>
-        
-        <h1>Grow – Terms of Service</h1>
+    <!-- Header -->
+    <header class="policy-header">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Home
+            </a>
+            <h1 class="policy-title">Terms of Service</h1>
+            <p class="last-updated">Last updated: January 15, 2025</p>
+        </div>
+    </header>
 
-        <h2>Introduction</h2>
-        <p>Welcome to Grow! These Terms of Service ("Terms") govern your access to and use of the Grow AI video platform, website, and related services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms.</p>
-        <p class="last-updated"><strong>Last Updated: January 15, 2025</strong></p>
-        <p><strong>IMPORTANT — Please read carefully.</strong> If you do not agree to these Terms, you may not access or use Grow.</p>
+    <!-- Policy Content -->
+    <main class="policy-content">
+        <div class="container">
+            <div class="policy-body">
+                <h2>Introduction</h2>
+                <p>Welcome to Grow! These Terms of Service ("Terms") govern your access to and use of the Grow AI video platform, website, and related services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms.</p>
+                <p><strong>IMPORTANT — Please read carefully.</strong> If you do not agree to these Terms, you may not access or use Grow.</p>
 
-        <hr>
+                <hr>
 
-        <h2>1. Acceptance of Terms</h2>
-        <p>By creating an account or using Grow, you confirm that you:</p>
-        <ul>
-            <li>Accept and agree to these Terms of Service</li>
-            <li>Agree to our Privacy Policy and Cookie Policy</li>
-            <li>Are at least 13 years old (or 16 in the EEA)</li>
-            <li>Have the legal authority to enter a binding agreement</li>
-        </ul>
-        <p>If you are using Grow on behalf of an organization, you represent you have authority to bind that organization.</p>
+                <h2>1. Acceptance of Terms</h2>
+                <p>By creating an account or using Grow, you confirm that you:</p>
+                <ul>
+                    <li>Accept and agree to these Terms of Service</li>
+                    <li>Agree to our Privacy Policy and Cookie Policy</li>
+                    <li>Are at least 13 years old (or 16 in the EEA)</li>
+                    <li>Have the legal authority to enter a binding agreement</li>
+                </ul>
+                <p>If you are using Grow on behalf of an organization, you represent you have authority to bind that organization.</p>
 
-        <hr>
+                <hr>
 
-        <h2>2. Description of Services</h2>
-        <p>Grow is an AI-powered video creation platform offering:</p>
-        <ul>
-            <li>Text-to-Video generation</li>
-            <li>Image-to-Video creation</li>
-            <li>Video editing, styling, and enhancement tools</li>
-            <li>Cloud-based storage & project management</li>
-            <li>Memberships with premium features, upgraded tools, and higher usage limits</li>
-        </ul>
-        <p>The Services are provided <strong>"as is" and "as available,"</strong> without warranties of any kind.</p>
+                <h2>2. Description of Services</h2>
+                <p>Grow is an AI-powered video creation platform offering:</p>
+                <ul>
+                    <li>Text-to-Video generation</li>
+                    <li>Image-to-Video creation</li>
+                    <li>Video editing, styling, and enhancement tools</li>
+                    <li>Cloud-based storage & project management</li>
+                    <li>Memberships with premium features, upgraded tools, and higher usage limits</li>
+                </ul>
+                <p>The Services are provided <strong>"as is" and "as available,"</strong> without warranties of any kind.</p>
 
-        <hr>
+                <hr>
 
-        <h2>3. User Accounts</h2>
+                <h2>3. User Accounts</h2>
 
-        <h3>Account Creation</h3>
-        <p>To use Grow, you must provide:</p>
-        <ul>
-            <li>A valid email address</li>
-            <li>A secure password</li>
-            <li>Accurate registration information</li>
-        </ul>
-        <p>You may also register using approved social login methods.</p>
+                <h3>Account Creation</h3>
+                <p>To use Grow, you must provide:</p>
+                <ul>
+                    <li>A valid email address</li>
+                    <li>A secure password</li>
+                    <li>Accurate registration information</li>
+                </ul>
+                <p>You may also register using approved social login methods.</p>
 
-        <h3>Account Security</h3>
-        <p>You are responsible for:</p>
-        <ul>
-            <li>Maintaining confidentiality of your login credentials</li>
-            <li>All activity occurring under your account</li>
-            <li>Promptly notifying us of unauthorized access</li>
-        </ul>
-        <p>Grow is not responsible for losses caused by your failure to secure your account.</p>
+                <h3>Account Security</h3>
+                <p>You are responsible for:</p>
+                <ul>
+                    <li>Maintaining confidentiality of your login credentials</li>
+                    <li>All activity occurring under your account</li>
+                    <li>Promptly notifying us of unauthorized access</li>
+                </ul>
+                <p>Grow is not responsible for losses caused by your failure to secure your account.</p>
 
-        <h3>Account Termination</h3>
-        <p>You may request account deletion anytime by contacting support.</p>
-        <p>Grow may suspend or terminate accounts that violate these Terms.</p>
+                <h3>Account Termination</h3>
+                <p>You may request account deletion anytime by contacting support.</p>
+                <p>Grow may suspend or terminate accounts that violate these Terms.</p>
 
-        <hr>
+                <hr>
 
-        <h2>4. Memberships & Payments</h2>
-        <p>Grow offers:</p>
+                <h2>4. Memberships & Payments</h2>
+                <p>Grow offers:</p>
 
-        <h3>Free Access</h3>
-        <ul>
-            <li>Limited access to basic features</li>
-            <li>Restricted video generation capacity</li>
-        </ul>
+                <h3>Free Access</h3>
+                <ul>
+                    <li>Limited access to basic features</li>
+                    <li>Restricted video generation capacity</li>
+                </ul>
 
-        <h3>Membership Plans</h3>
-        <p>Membership unlocks premium benefits, such as:</p>
-        <ul>
-            <li>More generation capacity</li>
-            <li>Faster model access</li>
-            <li>Premium features & effects</li>
-            <li>Increased storage</li>
-        </ul>
-        <p>Plans may change over time.</p>
+                <h3>Membership Plans</h3>
+                <p>Membership unlocks premium benefits, such as:</p>
+                <ul>
+                    <li>More generation capacity</li>
+                    <li>Faster model access</li>
+                    <li>Premium features & effects</li>
+                    <li>Increased storage</li>
+                </ul>
+                <p>Plans may change over time.</p>
 
-        <h3>Payments</h3>
-        <ul>
-            <li>All payments are processed securely</li>
-            <li>Memberships renew automatically unless cancelled</li>
-            <li>Prices may change with notice</li>
-            <li>Taxes may apply</li>
-        </ul>
-        <p>Unused time in a billing period is not refunded except as outlined in Section 9.</p>
-        <p>Grow does <strong>not</strong> offer API-based access or API consumption pricing.</p>
+                <h3>Payments</h3>
+                <ul>
+                    <li>All payments are processed securely</li>
+                    <li>Memberships renew automatically unless cancelled</li>
+                    <li>Prices may change with notice</li>
+                    <li>Taxes may apply</li>
+                </ul>
+                <p>Unused time in a billing period is not refunded except as outlined in Section 9.</p>
+                <p>Grow does <strong>not</strong> offer API-based access or API consumption pricing.</p>
 
-        <hr>
+                <hr>
 
-        <h2>5. Acceptable Use</h2>
-        <p>You agree to use Grow lawfully and responsibly.</p>
+                <h2>5. Acceptable Use</h2>
+                <p>You agree to use Grow lawfully and responsibly.</p>
 
-        <h3>Prohibited Content</h3>
-        <p>You may <strong>not</strong> use Grow to create, upload, or distribute:</p>
-        <ul>
-            <li>Illegal or harmful content</li>
-            <li>Misleading deepfakes intended to deceive</li>
-            <li>Content that violates IP rights</li>
-            <li>Violent, hateful, or discriminatory content</li>
-            <li>Sexually explicit content involving minors</li>
-            <li>Pornographic, extreme sexual, or exploitative content</li>
-            <li>Spam, scams, malware, or phishing</li>
-        </ul>
+                <h3>Prohibited Content</h3>
+                <p>You may <strong>not</strong> use Grow to create, upload, or distribute:</p>
+                <ul>
+                    <li>Illegal or harmful content</li>
+                    <li>Misleading deepfakes intended to deceive</li>
+                    <li>Content that violates IP rights</li>
+                    <li>Violent, hateful, or discriminatory content</li>
+                    <li>Sexually explicit content involving minors</li>
+                    <li>Pornographic, extreme sexual, or exploitative content</li>
+                    <li>Spam, scams, malware, or phishing</li>
+                </ul>
 
-        <h3>Prohibited Actions</h3>
-        <p>You may not:</p>
-        <ul>
-            <li>Reverse engineer, decompile, or exploit Grow systems</li>
-            <li>Attempt to extract AI models</li>
-            <li>Bypass security or technical limits</li>
-            <li>Abuse or overload the Services</li>
-            <li>Impersonate others</li>
-            <li>Sell or redistribute Grow access without permission</li>
-            <li>Use Grow to build competing services</li>
-        </ul>
+                <h3>Prohibited Actions</h3>
+                <p>You may not:</p>
+                <ul>
+                    <li>Reverse engineer, decompile, or exploit Grow systems</li>
+                    <li>Attempt to extract AI models</li>
+                    <li>Bypass security or technical limits</li>
+                    <li>Abuse or overload the Services</li>
+                    <li>Impersonate others</li>
+                    <li>Sell or redistribute Grow access without permission</li>
+                    <li>Use Grow to build competing services</li>
+                </ul>
 
-        <h3>Commercial Use</h3>
-        <p>Commercial use of generated videos is permitted under paid memberships, subject to applicable laws and rights.</p>
-        <p>You are solely responsible for securing rights to input content.</p>
+                <h3>Commercial Use</h3>
+                <p>Commercial use of generated videos is permitted under paid memberships, subject to applicable laws and rights.</p>
+                <p>You are solely responsible for securing rights to input content.</p>
 
-        <hr>
+                <hr>
 
-        <h2>6. Intellectual Property Rights</h2>
+                <h2>6. Intellectual Property Rights</h2>
 
-        <h3>Your Content</h3>
-        <p>You retain ownership of:</p>
-        <ul>
-            <li>Prompts you submit</li>
-            <li>Images you upload</li>
-            <li>Videos you generate</li>
-        </ul>
+                <h3>Your Content</h3>
+                <p>You retain ownership of:</p>
+                <ul>
+                    <li>Prompts you submit</li>
+                    <li>Images you upload</li>
+                    <li>Videos you generate</li>
+                </ul>
 
-        <h3>License You Grant to Grow</h3>
-        <p>By submitting content, you grant Grow a worldwide, non-exclusive, royalty-free license to:</p>
-        <ul>
-            <li>Use, process, host, store, display, and modify your content</li>
-            <li>Improve and operate the Services</li>
-            <li>Conduct analytics and research using anonymized and aggregated data</li>
-        </ul>
-        <p>This license ends when you delete your content, except for:</p>
-        <ul>
-            <li>Legitimate backup copies</li>
-            <li>Previously shared content</li>
-            <li>Anonymous aggregated data</li>
-        </ul>
+                <h3>License You Grant to Grow</h3>
+                <p>By submitting content, you grant Grow a worldwide, non-exclusive, royalty-free license to:</p>
+                <ul>
+                    <li>Use, process, host, store, display, and modify your content</li>
+                    <li>Improve and operate the Services</li>
+                    <li>Conduct analytics and research using anonymized and aggregated data</li>
+                </ul>
+                <p>This license ends when you delete your content, except for:</p>
+                <ul>
+                    <li>Legitimate backup copies</li>
+                    <li>Previously shared content</li>
+                    <li>Anonymous aggregated data</li>
+                </ul>
 
-        <h3>Grow IP</h3>
-        <p>Grow owns:</p>
-        <ul>
-            <li>All software, code, and algorithms</li>
-            <li>AI models and functionality</li>
-            <li>Website & platform design</li>
-            <li>Documentation</li>
-            <li>Logos, trademarks, and brand assets</li>
-        </ul>
-        <p>You may not use these without permission.</p>
+                <h3>Grow IP</h3>
+                <p>Grow owns:</p>
+                <ul>
+                    <li>All software, code, and algorithms</li>
+                    <li>AI models and functionality</li>
+                    <li>Website & platform design</li>
+                    <li>Documentation</li>
+                    <li>Logos, trademarks, and brand assets</li>
+                </ul>
+                <p>You may not use these without permission.</p>
 
-        <hr>
+                <hr>
 
-        <h2>7. Content Moderation</h2>
-        <p>Grow may:</p>
-        <ul>
-            <li>Review or monitor generated content</li>
-            <li>Remove or restrict content</li>
-            <li>Suspend or terminate accounts</li>
-            <li>Report illegal material to authorities</li>
-        </ul>
-        <p>Grow is not required to pre-screen all content.</p>
+                <h2>7. Content Moderation</h2>
+                <p>Grow may:</p>
+                <ul>
+                    <li>Review or monitor generated content</li>
+                    <li>Remove or restrict content</li>
+                    <li>Suspend or terminate accounts</li>
+                    <li>Report illegal material to authorities</li>
+                </ul>
+                <p>Grow is not required to pre-screen all content.</p>
 
-        <hr>
+                <hr>
 
-        <h2>8. Third-Party Services</h2>
-        <p>Grow may integrate providers such as:</p>
-        <ul>
-            <li>Stripe – payments</li>
-            <li>Cloud hosting services</li>
-            <li>Authentication services</li>
-            <li>Email delivery platforms</li>
-        </ul>
-        <p>Each service is governed by its own terms and privacy policies.</p>
-        <p>Grow is not responsible for third-party failures.</p>
+                <h2>8. Third-Party Services</h2>
+                <p>Grow may integrate providers such as:</p>
+                <ul>
+                    <li>Stripe – payments</li>
+                    <li>Cloud hosting services</li>
+                    <li>Authentication services</li>
+                    <li>Email delivery platforms</li>
+                </ul>
+                <p>Each service is governed by its own terms and privacy policies.</p>
+                <p>Grow is not responsible for third-party failures.</p>
 
-        <hr>
+                <hr>
 
-        <h2>9. Refund Policy</h2>
-        <p><strong>Membership Refunds:</strong></p>
-        <ul>
-            <li>Refunds are available within <strong>7 days of first purchase</strong> if <strong>no premium benefits were used</strong></li>
-            <li>No refunds for partial billing periods</li>
-            <li>Cancellation stops future charges only</li>
-        </ul>
-        <p>Grow reserves discretion in exceptional cases involving technical service failure.</p>
+                <h2>9. Refund Policy</h2>
+                <p><strong>Membership Refunds:</strong></p>
+                <ul>
+                    <li>Refunds are available within <strong>7 days of first purchase</strong> if <strong>no premium benefits were used</strong></li>
+                    <li>No refunds for partial billing periods</li>
+                    <li>Cancellation stops future charges only</li>
+                </ul>
+                <p>Grow reserves discretion in exceptional cases involving technical service failure.</p>
 
-        <hr>
+                <hr>
 
-        <h2>10. Disclaimers & Limitations</h2>
-        <p>Grow does not guarantee that the Service will:</p>
-        <ul>
-            <li>Be uninterrupted or secure</li>
-            <li>Meet your expectations</li>
-            <li>Produce accurate or error-free output</li>
-            <li>Work on all devices</li>
-        </ul>
-        <p>AI-generated content may be unpredictable or inaccurate.</p>
-        <p>You must review content before use.</p>
+                <h2>10. Disclaimers & Limitations</h2>
+                <p>Grow does not guarantee that the Service will:</p>
+                <ul>
+                    <li>Be uninterrupted or secure</li>
+                    <li>Meet your expectations</li>
+                    <li>Produce accurate or error-free output</li>
+                    <li>Work on all devices</li>
+                </ul>
+                <p>AI-generated content may be unpredictable or inaccurate.</p>
+                <p>You must review content before use.</p>
 
-        <h3>Limitation of Liability</h3>
-        <p>To the maximum extent permitted by law:</p>
-        <ul>
-            <li>Grow is not liable for indirect, incidental, or consequential damages</li>
-            <li>Grow's maximum liability is limited to what you paid in the last 12 months</li>
-        </ul>
-        <p>Some jurisdictions may vary.</p>
+                <h3>Limitation of Liability</h3>
+                <p>To the maximum extent permitted by law:</p>
+                <ul>
+                    <li>Grow is not liable for indirect, incidental, or consequential damages</li>
+                    <li>Grow's maximum liability is limited to what you paid in the last 12 months</li>
+                </ul>
+                <p>Some jurisdictions may vary.</p>
 
-        <hr>
+                <hr>
 
-        <h2>11. Indemnification</h2>
-        <p>You agree to indemnify Grow against claims arising from:</p>
-        <ul>
-            <li>Your use of the Services</li>
-            <li>Content you upload or generate</li>
-            <li>Your violation of law</li>
-            <li>Your breach of these Terms</li>
-        </ul>
+                <h2>11. Indemnification</h2>
+                <p>You agree to indemnify Grow against claims arising from:</p>
+                <ul>
+                    <li>Your use of the Services</li>
+                    <li>Content you upload or generate</li>
+                    <li>Your violation of law</li>
+                    <li>Your breach of these Terms</li>
+                </ul>
 
-        <hr>
+                <hr>
 
-        <h2>12. Changes to Terms</h2>
-        <p>Grow may update Terms periodically.</p>
-        <p>We will notify users through:</p>
-        <ul>
-            <li>Updated Terms posted to the site</li>
-            <li>Email notice</li>
-            <li>In-platform notice</li>
-        </ul>
-        <p>Continued use after changes means acceptance.</p>
+                <h2>12. Changes to Terms</h2>
+                <p>Grow may update Terms periodically.</p>
+                <p>We will notify users through:</p>
+                <ul>
+                    <li>Updated Terms posted to the site</li>
+                    <li>Email notice</li>
+                    <li>In-platform notice</li>
+                </ul>
+                <p>Continued use after changes means acceptance.</p>
 
-        <hr>
+                <hr>
 
-        <h2>13. Termination</h2>
+                <h2>13. Termination</h2>
 
-        <h3>By You</h3>
-        <p>You may delete your account anytime.</p>
-        <p>Upon termination:</p>
-        <ul>
-            <li>Access ends immediately</li>
-            <li>Membership benefits cease</li>
-            <li>Content may be deleted after retention periods</li>
-        </ul>
+                <h3>By You</h3>
+                <p>You may delete your account anytime.</p>
+                <p>Upon termination:</p>
+                <ul>
+                    <li>Access ends immediately</li>
+                    <li>Membership benefits cease</li>
+                    <li>Content may be deleted after retention periods</li>
+                </ul>
 
-        <h3>By Grow</h3>
-        <p>Grow may terminate accounts for:</p>
-        <ul>
-            <li>Violations of Terms</li>
-            <li>Abuse of platform</li>
-            <li>Illegal activity</li>
-            <li>Payment failure</li>
-        </ul>
-        <p>Inactive accounts (24+ months) may be closed with notice.</p>
-        <p>Certain sections survive termination.</p>
+                <h3>By Grow</h3>
+                <p>Grow may terminate accounts for:</p>
+                <ul>
+                    <li>Violations of Terms</li>
+                    <li>Abuse of platform</li>
+                    <li>Illegal activity</li>
+                    <li>Payment failure</li>
+                </ul>
+                <p>Inactive accounts (24+ months) may be closed with notice.</p>
+                <p>Certain sections survive termination.</p>
 
-        <hr>
+                <hr>
 
-        <h2>14. Dispute Resolution</h2>
+                <h2>14. Dispute Resolution</h2>
 
-        <h3>Governing Law</h3>
-        <p>These Terms are governed by the laws of the United States and the State of Delaware.</p>
+                <h3>Governing Law</h3>
+                <p>These Terms are governed by the laws of the United States and the State of Delaware.</p>
 
-        <h3>Arbitration</h3>
-        <p>Disputes must be resolved through binding arbitration except:</p>
-        <ul>
-            <li>Small claims matters</li>
-            <li>IP enforcement</li>
-            <li>Injunctive relief</li>
-        </ul>
-        <p>No class actions.</p>
+                <h3>Arbitration</h3>
+                <p>Disputes must be resolved through binding arbitration except:</p>
+                <ul>
+                    <li>Small claims matters</li>
+                    <li>IP enforcement</li>
+                    <li>Injunctive relief</li>
+                </ul>
+                <p>No class actions.</p>
 
-        <hr>
+                <hr>
 
-        <h2>15. General</h2>
-        <ul>
-            <li>These Terms form the entire agreement</li>
-            <li>Invalid clauses do not void rest</li>
-            <li>No waiver without written authorization</li>
-            <li>You cannot transfer your account</li>
-            <li>Grow may assign these Terms</li>
-            <li>Force majeure applies</li>
-        </ul>
+                <h2>15. General</h2>
+                <ul>
+                    <li>These Terms form the entire agreement</li>
+                    <li>Invalid clauses do not void rest</li>
+                    <li>No waiver without written authorization</li>
+                    <li>You cannot transfer your account</li>
+                    <li>Grow may assign these Terms</li>
+                    <li>Force majeure applies</li>
+                </ul>
 
-        <hr>
+                <hr>
 
-        <h2>16. Contact</h2>
-        <p>For questions, support, or complaints:</p>
-        <p>Email: <a href="mailto:support@memorylabai.com">support@memorylabai.com</a></p>
-        <p>Website contact form available on the platform.</p>
+                <h2>16. Contact</h2>
+                <p>For questions, support, or complaints:</p>
+                <p>Email: <a href="mailto:support@memorylabai.com">support@memorylabai.com</a></p>
+                <p>Website contact form available on the platform.</p>
 
-        <hr>
+                <hr>
 
-        <h2>17. Additional Terms for Beta Features</h2>
-        <p>Some features may be experimental:</p>
-        <ul>
-            <li>Provided as-is</li>
-            <li>May be removed without notice</li>
-            <li>No guarantees or support offered</li>
-        </ul>
+                <h2>17. Additional Terms for Beta Features</h2>
+                <p>Some features may be experimental:</p>
+                <ul>
+                    <li>Provided as-is</li>
+                    <li>May be removed without notice</li>
+                    <li>No guarantees or support offered</li>
+                </ul>
 
-        <hr>
+                <hr>
 
-        <p><strong>By using Grow, you confirm that you have read and agree to these Terms of Service.</strong></p>
-    </div>
+                <p><strong>By using Grow, you confirm that you have read and agree to these Terms of Service.</strong></p>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -416,4 +667,3 @@
     </footer>
 </body>
 </html>
-

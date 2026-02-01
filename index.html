@@ -6,20 +6,24 @@
     <meta name="description" content="Memory Lab AI - An AI research lab focused on improving long-term memory of AI models and building creative content for users.">
     <meta name="keywords" content="AI, Artificial Intelligence, Machine Learning, Long-term Memory, Creative Content, AI Research">
     <meta name="author" content="Memory Lab AI">
+    <meta name="theme-color" content="#0a0a0f">
     <title>Memory Lab AI - Advancing AI Memory & Creative Content</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="index.html" class="nav-brand-link">
+                <!-- <a href="index.html" class="nav-brand-link">
                     <img src="assets/logo.png" alt="Memory Lab AI" class="nav-logo">
                     <img src="assets/grow.png" alt="Grow" class="nav-logo nav-logo-grow">
+                </a> -->
+                <a href="index.html" style="text-decoration: none;">
+                    <h1>Memory Lab</h1>
                 </a>
             </div>
             <ul class="nav-menu">
@@ -35,10 +39,18 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Advancing AI Memory & Creative Intelligence</h2>
+                <div class="hero-badge">
+                    Memory Lab
+                </div>
+                <h1 class="hero-title">Advancing AI <span class="highlight">Memory</span> & Creative Intelligence</h1>
                 <p class="hero-subtitle">We're pioneering breakthroughs in long-term memory systems for AI models and building innovative tools that empower creative content creation.</p>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#about" class="btn btn-primary">
+                        Explore Our Work
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
@@ -48,9 +60,10 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Memory Lab AI</h2>
-            <div class="about-content">
-                <p>Memory Lab AI is a cutting-edge artificial intelligence research laboratory dedicated to solving one of the most fundamental challenges in AI: long-term memory retention and retrieval.</p>
+            <h2 class="section-title reveal">About Memory Lab</h2>
+            <p class="section-subtitle reveal">Pushing the boundaries of what's possible in artificial intelligence</p>
+            <div class="about-content reveal">
+                <p>Memory Lab is a cutting-edge artificial intelligence research laboratory dedicated to solving one of the most fundamental challenges in AI: long-term memory retention and retrieval.</p>
                 <p>Our team of researchers and engineers is pushing the boundaries of what's possible in AI-assisted creative content generation, making advanced technology accessible and useful for creators, businesses, and innovators worldwide.</p>
             </div>
         </div>
@@ -59,19 +72,20 @@
     <!-- Research Areas -->
     <section id="research" class="research">
         <div class="container">
-            <h2 class="section-title">Our Research Focus</h2>
+            <h2 class="section-title reveal">Our Research Focus</h2>
+            <p class="section-subtitle reveal">Exploring the frontiers of artificial intelligence</p>
             <div class="research-grid">
-                <div class="research-card">
+                <div class="research-card reveal reveal-delay-1">
                     <div class="card-icon">🧠</div>
                     <h3>Long-Term Memory Systems</h3>
                     <p>Developing advanced architectures that enable AI models to retain and recall information over extended periods, mimicking human-like memory capabilities.</p>
                 </div>
-                <div class="research-card">
+                <div class="research-card reveal reveal-delay-2">
                     <div class="card-icon">✨</div>
                     <h3>Creative Content Generation</h3>
                     <p>Building intelligent tools that assist users in creating compelling, original content across multiple formats and mediums.</p>
                 </div>
-                <div class="research-card">
+                <div class="research-card reveal reveal-delay-3">
                     <div class="card-icon">🔬</div>
                     <h3>AI Model Innovation</h3>
                     <p>Researching novel approaches to neural network design, training methodologies, and optimization techniques for better AI performance.</p>
@@ -83,12 +97,14 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <p>We're always interested in collaborations, partnerships, and conversations about the future of AI.</p>
+            <h2 class="section-title reveal">Let's Connect</h2>
+            <p class="section-subtitle reveal">We're always interested in collaborations and partnerships</p>
+            <div class="contact-content reveal">
+                <p>Reach out to discuss the future of AI with us. Whether you're a researcher, business, or innovator — we'd love to hear from you.</p>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <strong>Support:</strong> <a href="mailto:support@memorylabai.com">support@memorylabai.com</a>
+                        <strong>Support:</strong>
+                        <a href="mailto:support@memorylabai.com">support@memorylabai.com</a>
                     </div>
                 </div>
             </div>
@@ -111,4 +127,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
